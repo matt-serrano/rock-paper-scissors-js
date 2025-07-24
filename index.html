@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script>
+        let humanScore = 0;
+        let computerScore = 0;
+
         function getComputerChoice() {
             let number = Math.floor(Math.random() * 3);
             
@@ -18,8 +21,44 @@
         }
 
         function getHumanChoice() {
-            const choice = prompt("Choose between rock(r), paper(p), or scissors(s): ");
+            let choice = prompt("Choose between rock, paper, or scissors: ");
+
+            let lowerCased = choice.toLowerCase();
+
+            return lowerCased;
         } 
+
+        function playRound(humanChoice, computerChoice) {
+            if (humanChoice == "rock" && computerChoice == "rock") {
+                console.log("Tie! Both are rock!");
+            } else if (humanChoice == "rock" && computerChoice == "paper") {
+                console.log("You lost! Rock (PLAYER) vs. Paper (COM)");
+            } else if (humanChoice == "rock" && computerChoice == "scissors") {
+                console.log("You won! Rock (PLAYER) vs. Scissors (COM)");
+            } else if (humanChoice == "paper" && computerChoice == "paper") {
+                console.log("Tie! Both are paper!");
+            } else if (humanChoice == "paper" && computerChoice == "scissors") {
+                console.log("You lost! Paper (PLAYER) vs. Scissors (COM)");
+            } else if (humanChoice == "paper" && computerChoice == "rock") {
+                console.log("You won! Paper (PLAYER) vs. Rock (COM)");
+            } else if (humanChoice == "scissors" && computerChoice == "scissors") {
+                console.log("Tie! Both are scissors!");
+            } else if (humanChoice == "scissors" && computerChoice == "rock") {
+                console.log("You lost! Scissors (PLAYER) vs. Rock (COM)");
+            } else {
+                console.log("You won! Scissors (PLAYER) vs. Paper (COM)");
+            } 
+        }
+
+
+        function playGame() {
+            while (true) {
+                console.log("---------------------");
+                console.log("Rock, Paper, Scissors");
+                console.log("---------------------");
+                console.log("Player: " + humanScore + " Computer: " + computerScore);
+            }
+        }
 
 
 
